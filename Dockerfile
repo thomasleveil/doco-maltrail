@@ -9,4 +9,6 @@ RUN apt-get update \
 WORKDIR /maltrail
 VOLUME /var/log/maltrail
 
+COPY maltrail.conf /maltrail/maltrail.conf
+
 
