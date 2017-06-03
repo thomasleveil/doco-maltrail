@@ -1,6 +1,6 @@
 # Docker Maltrail
 
-Dockerized maltrail - Malicious traffic detection system
+Dockerized [maltrail](https://github.com/stamparm/maltrail) - Malicious traffic detection system
 
 Quick Start
 ---
