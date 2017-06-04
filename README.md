@@ -11,7 +11,7 @@ services:
   server:
     image: tomdesinto/maltrail
     volumes:
-      - ./maltrail.conf:/maltrail.conf:ro
+      - ./maltrail.conf:/maltrail/maltrail.conf:ro
     ports:
       - 8338:8338
       - 127.0.0.1:8337:8337/udp
@@ -23,7 +23,7 @@ services:
     privileged: true
     network_mode: host
     volumes:
-      - ./maltrail.conf:/maltrail.conf:ro
+      - ./maltrail.conf:/maltrail/maltrail.conf:ro
     command: python sensor.py
 ```
 
