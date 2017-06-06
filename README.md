@@ -15,6 +15,7 @@ services:
     ports:
       - 8338:8338
       - 127.0.0.1:8337:8337/udp
+    volumes:
       - ./logs:/var/log/maltrail
     command: python server.py
     
