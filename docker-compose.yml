@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 
 services:
   server:
@@ -12,6 +12,9 @@ services:
     command: python server.py
     logging:
       driver: json-file
+    restart: always
+    healthcheck:
+      test: bash -c "cat </dev/null >/dev/tcp/127.0.0.1/8338 && cat </dev/null >/dev/udp/127.0.0.1/8337"
     
   sensor:
     build: ./
@@ -22,3 +25,6 @@ services:
     command: python sensor.py
     logging:
       driver: json-file
+    restart: always
+    healthcheck:
+      test: bash -c '[[ $$(pgrep -fc sensor.py) -gt 1 ]]'
