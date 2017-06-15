@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM jsurf/rpi-raspbian
 
 RUN apt-get update \ 
     && apt-get upgrade -y \
