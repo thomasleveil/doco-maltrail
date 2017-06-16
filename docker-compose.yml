@@ -21,12 +21,14 @@ services:
   sensor:
     build: ./
     privileged: true
+    cap_add:
+      - NET_ADMIN
     network_mode: host
     volumes:
       - ./maltrail.conf:/maltrail.conf:ro
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
-    command: python sensor.py
+    command: /maltrail/run-sensor.sh
     logging:
       driver: json-file
     restart: always
